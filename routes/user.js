@@ -5,15 +5,27 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', (_, res) => {
-  res.locals.users = UserService.getAllUsers();
-  res.render('users');
+  (async () => {
+    const users = await UserService.getAllUsers();
+    console.log(users);
+    res.locals.users = users;
+    res.render('users');
+  })()
+    .then((resp) => {
+      console.log(resp);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 /* Add a new user */
 router.post('/', (req, res) => {
-  const { firstName, lastName, age } = req.body;
-  const user = UserService.addNewUser(firstName, lastName, age);
-  res.json(user);
+  (async () => {
+    const { firstName, lastName, age } = req.body;
+    const user = await UserService.addNewUser(firstName, lastName, age);
+    res.json(user);
+  })();
 });
 
 /* Get user by id */
