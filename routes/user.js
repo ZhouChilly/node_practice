@@ -4,19 +4,12 @@ const UserService = require('../services/user_service');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', (_, res) => {
+router.get('/', (_, res, next) => {
   (async () => {
     const users = await UserService.getAllUsers();
-    console.log(users);
     res.locals.users = users;
     res.render('users');
-  })()
-    .then((resp) => {
-      console.log(resp);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  })();
 });
 
 /* Add a new user */
@@ -29,7 +22,7 @@ router.post('/', (req, res) => {
 });
 
 /* Get user by id */
-router.post('/:userId', (req, res) => {
+router.get('/:userId', (req, res) => {
   const { userId } = req.params;
   res.locals.user = UserService.getUserById(userId);
   res.render('user');
