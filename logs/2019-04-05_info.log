@@ -3,3 +3,7 @@
 {"level":"info","message":"db connected","timestamp":"2019-04-05T10:48:30.842Z"}
 {"level":"info","message":"db connected","timestamp":"2019-04-05T10:50:58.848Z"}
 {"level":"info","message":"db connected","timestamp":"2019-04-05T10:51:41.757Z"}
+{"level":"info","message":"db connected","timestamp":"2019-04-05T12:43:51.090Z"}
+{"level":"info","message":"db connected","timestamp":"2019-04-05T12:45:24.361Z"}
+{"uri":"mongodb://localhost:27017/node_practice","level":"info","message":"db connected","timestamp":"2019-04-05T12:54:30.484Z"}
+{"uri":"mongodb://localhost:27017/node_practice","level":"info","message":"db connected","timestamp":"2019-04-05T13:02:23.524Z"}

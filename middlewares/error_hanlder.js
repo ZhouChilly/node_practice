@@ -1,5 +1,7 @@
+const logger = require('../utils/loggers/logger');
+
 const handler = options => (err, req, res, next) => {
-  console.log('uncaught error in the middleware process', err);
+  logger.log('error', 'uncaught error in the middleware process', { err });
 };
 
 module.exports = handler;

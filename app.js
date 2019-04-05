@@ -25,6 +25,6 @@ app.use('/user', userRouter);
 app.use(httpErrorHandler());
 
 // error handler
-process.on('uncaughtException', (err) => {});
-process.on('unhandledRejection', (reason, promise) => {});
+process.on('uncaughtException', (err) => { logger.log('error', 'uncaught exception', { err }); });
+process.on('unhandledRejection', (reason, promise) => { logger.log('error', 'unhandledRejection', { reason, promise }); });
 module.exports = app;

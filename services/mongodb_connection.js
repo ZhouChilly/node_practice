@@ -11,10 +11,10 @@ mongoose.connect(uri, {
 const db = mongoose.connection;
 
 db.on('open', () => {
-  logger.log('info', 'db connected');
+  logger.log('info', 'db connected', { uri });
 });
 db.on('error', (err) => {
-  logger.log('error', 'db connect error', { err: err.stack });
+  logger.log('error', 'db connect error', { uri, err: err.stack });
 });
 
 module.exports = db;
