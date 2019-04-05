@@ -6,7 +6,6 @@ const httpErrorHandler = require('./middlewares/http_error_hanlder');
 require('./services/mongodb_connection');
 
 const indexRouter = require('./routes/index');
-const userRouter = require('./routes/user');
 
 const app = express();
 
@@ -20,8 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/user', userRouter);
+app.use('/api', indexRouter);
 app.use(httpErrorHandler());
 
 // error handler
